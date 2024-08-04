@@ -1,5 +1,5 @@
 //Variables declaration
-move_speed	= 5;
+move_speed	= 400 / global.get_fps;
 life		= 7;
 damage		= 1;
 
@@ -14,8 +14,9 @@ idle.create		= function()
 }
 idle.execute	= function()
 {
-	var	commands	= get_movement_commands();	
+	var	commands	= player_get_commands();	
 
+	set_pause(global.g_pause);
 	if (commands.is_moving)
 		state_change(walk);
 }
@@ -24,10 +25,10 @@ idle.destroy	= function(){}
 walk.create		= function(){}
 walk.execute	= function()
 {
-	var	commands	= get_movement_commands();	
+	var	commands	= player_get_commands();	
 
-	walking_horizontal(commands.right - commands.left, move_speed);
-	walking_vertical(commands.down - commands.up, move_speed);
+	set_pause(global.g_pause);
+	walking(commands.right - commands.left, commands.down - commands.up, move_speed);
 	if (!commands.is_moving)
 		state_change(idle);
 }

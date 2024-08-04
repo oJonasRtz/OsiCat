@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "scpMovement",
+  "name": "scpPause",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {

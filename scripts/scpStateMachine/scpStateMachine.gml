@@ -3,9 +3,9 @@
 	execute	= code to run in every frame
 	destroy	= final code to run before the current state finalize
 */
-function	state() constructor{
+function	state(name) constructor{
 	last_state = 0;
-	state_name = self;
+	state_name = name;
 	
 	static create	= function(){};
 	static execute	= function(){};
