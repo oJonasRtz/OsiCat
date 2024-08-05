@@ -1,6 +1,5 @@
 /// @description show status
-draw_self();
 event_inherited();
 
-draw_sprite(sOsiCatLifebar, life, x, y - 30);
-draw_sprite(sOsiCatBulletCnt, ammo, x, y - 20);
+draw_sprite(sOsiCatLifebar, life, oOsiCat.x, oOsiCat.y - 30);
+draw_sprite(sOsiCatBulletCnt, ammo, oOsiCat.x, oOsiCat.y - 20);
