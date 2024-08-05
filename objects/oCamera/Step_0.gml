@@ -18,5 +18,5 @@ if (cam_y < 0)
 if (cam_x > room_width - _camW)
     cam_x = room_width - _camW;
 if (cam_y > room_height - _camH)
-    cam_y = room_height - _camH
+    cam_y = room_height - _camH;
 camera_set_view_pos(view_camera[0], cam_x, cam_y);

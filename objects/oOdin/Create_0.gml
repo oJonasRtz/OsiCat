@@ -1,9 +1,19 @@
 /// @description Parent of all living beings
 
 //state machine initiation
-idle	= new state("Idle");
-walk	= new state("Walk");
-pause	= new state("Pause");
+idle		= new state("Idle");
+walk		= new state("Walk");
+shoot		= new state("Shoot");
+atack		= new state("Atack");
+death		= new state("Death");
+pause		= new state("Pause");
+
+state_map	= 
+{
+	is_moving	: walk,
+	idle		: idle,
+	shoot		: shoot,
+}
 
 //Set pause state
 pause.create	= function()

@@ -1,7 +1,6 @@
 /// @description show status
 draw_self();
+event_inherited();
 
-draw_set_color(c_black);
-	draw_text(x - 20, y - 30, string(state_get_name()));
-	draw_text(x - 20, y - 50, string(move_speed));
-draw_set_color(c_white);
+draw_sprite(sOsiCatLifebar, life, x, y - 30);
+draw_sprite(sOsiCatBulletCnt, ammo, x, y - 20);

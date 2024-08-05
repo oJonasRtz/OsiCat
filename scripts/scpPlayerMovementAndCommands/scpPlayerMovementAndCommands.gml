@@ -9,6 +9,8 @@ function	player_get_commands()
 	var _up			= keyboard_check(ord("W"));
 	var _down		= keyboard_check(ord("S"));
 	var _is_moving	= _up || _down || _right || _left;
+	var _shoot		= mouse_check_button_pressed(mb_left);
+	var _reload		= keyboard_check_pressed(ord("R"));
 
 	return 
 	{
@@ -16,7 +18,9 @@ function	player_get_commands()
 		left		: _left,
 		up			: _up,
 		down		: _down,
-		is_moving	: _is_moving
+		is_moving	: _is_moving,
+		shoot		: _shoot,
+		mRaload		: _reload,
 	}
 }
 
