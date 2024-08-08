@@ -10,6 +10,7 @@ event_inherited();
 idle.create		= function(){}
 idle.execute	= function()
 {
+	set_pause(global.g_pause);
 	randomize();
 	var	_timer	= irandom(timer);
 	
@@ -27,6 +28,7 @@ walk.create		= function()
 }
 walk.execute	= function()
 {
+	set_pause(global.g_pause);
 	var _timer  = irandom(timer);
 	
 	_timer--;

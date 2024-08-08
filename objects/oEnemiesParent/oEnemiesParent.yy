@@ -8,8 +8,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Aux",
-    "path": "folders/Objects/Aux.yy",
+    "name": "inGame",
+    "path": "folders/Objects/Aux/inGame.yy",
   },
   "parentObjectId": {
     "name": "oOdin",

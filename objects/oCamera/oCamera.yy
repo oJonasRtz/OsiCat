@@ -12,7 +12,10 @@
     "name": "Player",
     "path": "folders/Objects/Player.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "oOdin",
+    "path": "objects/oOdin/oOdin.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
