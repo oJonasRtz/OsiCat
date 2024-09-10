@@ -1,8 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-shader_surface = surface_create(room_width, room_height);
 
+if (condition)
+	move_speed *= (-1);
 
-
-
+x += Xmove_speed;
+y += Ymove_speed;
