@@ -7,3 +7,4 @@ else{
 	my_text = npc0_text(first_call, name);
 	page = 0;
 }
+

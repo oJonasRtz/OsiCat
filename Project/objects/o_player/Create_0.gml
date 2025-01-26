@@ -5,12 +5,6 @@ move_speed = 4;
 life = 7;
 damage = 1;
 
-//text
-side = "";
-page = 0;
-show_chat = false;
-talking_with = name;
-
 //	Sprites
 sprite_set = set_sprites(s_front, s_front, s_back, s_moving);
 

@@ -51,7 +51,7 @@ function	draw_dialog(text, page, font_colour, strheight, x1, x2, y1){
 	false to close the box
 */
 function	close_chat(interact){
-	return (!bool(interact));
+	return (!interact);
 }
 
 function	init_sizes(pos){

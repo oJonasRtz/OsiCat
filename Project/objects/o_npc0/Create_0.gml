@@ -2,17 +2,16 @@
 // You can write your code in this editor
 
 //	Text
+my_textbox = false;
 first_call = true;
 my_text = npc0_text(first_call, name);
 show_chat = false;
 page = 0;
-call_player = false;
-can_interact = true;
 
 //	stats
 move_speed = 4;
 spriteset = set_sprites(s_npc0, s_npc0, s_npc0, s_npc0);
 
 //	Walk
-target = noone;
+target = o_player;
 dir = new_dir();
