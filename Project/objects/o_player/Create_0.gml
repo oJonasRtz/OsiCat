@@ -28,7 +28,6 @@ idle.destroy	= function (){}
 //	Walking
 moving.create	= function(){}
 moving.execute	= function(){
-	depth = -1;
 	//	Move the player
 	var	keys = set_keys(keyboard_check(ord("D")),
 						keyboard_check(ord("A")),

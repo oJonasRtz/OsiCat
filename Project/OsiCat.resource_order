@@ -13,6 +13,7 @@
     {"name":"Paths","order":4,"path":"folders/Paths.yy",},
     {"name":"Rooms","order":10,"path":"folders/Rooms.yy",},
     {"name":"Scripts","order":5,"path":"folders/Scripts.yy",},
+    {"name":"obj_chat_text","order":7,"path":"folders/Scripts/obj_chat_text.yy",},
     {"name":"Sequences","order":11,"path":"folders/Sequences.yy",},
     {"name":"Shaders","order":6,"path":"folders/Shaders.yy",},
     {"name":"Sounds","order":3,"path":"folders/Sounds.yy",},
@@ -23,7 +24,6 @@
     {"name":"3-NPC","order":4,"path":"folders/Sprites/3-NPC.yy",},
     {"name":"Tile Sets","order":2,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
-    {"name":"obj_chat_text","order":7,"path":"folders/Scripts/obj_chat_text.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"s_moving","order":2,"path":"sprites/s_moving/s_moving.yy",},
