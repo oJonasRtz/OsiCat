@@ -4,6 +4,7 @@ idle	= new state("Idle");
 moving	= new state("Moving");
 pause	= new state("Pause");
 
+
 //	Set pause state
 pause.create	= function(){
 	image_spd = image_speed;

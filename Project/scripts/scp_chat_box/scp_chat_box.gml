@@ -1,61 +1,121 @@
+/*
+	Reset the counter when press the intect buton later
+*/
 global.char_cnt = 0;
 global.char_time = 0.5;
 
 /*
-	@param	text(string array char **) - text to be writen
-	@param	font	- font of the text
-	@param	pos("up" || "down")	- the position of the textbox
+	Draw the box and the edge
 */
-function	create_chat_box(name, name_colour, text, page, font, font_colour, box_colour, edge_colour, pos, interact){
-	var	height, width, strheight, edge, x1, x2, y1, y2, box_height;
-
+function	draw_box(box_colour, edge_colour, pos, x1, x2, y1, y2){
+	var	edge;
+	
 	edge = 5;
-	height = display_get_gui_height();
-	width = display_get_gui_width();
-	x1 = width * 0.2;
-	x2 = width - (width * 0.2);
-	box_height = height - (height * 0.7);
-	if (pos == "up"){
-		y1 = 25;
-		y2 = y1 + box_height;
-	}
-	else if (pos == "down"){
-		y2 = height - 25;
-		y1 = y2 - box_height;
-	}
+	draw_set_color(edge_colour);
+	draw_rectangle(x1 - edge, y1 - edge, x2 + edge, y2 + edge, false);
 	
-	// Desenha a borda branca
-    draw_set_color(edge_colour);
-    draw_rectangle(x1 - edge, y1 - edge, x2 + edge, y2 + edge, false);
-    
-    // Desenha o retângulo de fundo com a cor desejada
 	draw_set_color(box_colour);
-		draw_rectangle(x1, y1, x2, y2, false);
-	
-	// Desenha o texto
+	draw_rectangle(x1, y1, x2, y2, false);
+}
+
+/*
+	if it's given the name of the object we draw it
+*/
+function	draw_name(name, name_colour, strheight, x1, x2, y1){
 	draw_set_color(name_colour);
 	
-		draw_set_font(font);
-		strheight = string_height(text);
-		if (name != 0){
-			draw_text(x1, y1, name);
-			y1 += strheight;
-		}
-		draw_set_color(font_colour);
-		if (page < array_length(text)){	
+	if (name != 0){
+		draw_set_halign(fa_center);
+		draw_text((x2 - x1) / 2, y1, name);
+		y1 += strheight;
+		draw_set_halign(fa_left);
+	}
+	return (y1);
+}
 
-			global.char_cnt += global.char_time;
-			global.char_cnt = min(global.char_cnt, string_length(text[page]));
-			
-			draw_text_ext(x1, y1, string_copy(text[page], 1, global.char_cnt), strheight, x2 - x1);
-			if (global.char_cnt < string_length(text[page]))
-				return (true);
-		}
-		
-	draw_set_color(c_white);
+/*
+	draw the text of the dialog
+*/
+function	draw_dialog(text, page, font_colour, strheight, x1, x2, y1){
+	var	strlen = string_length(text[page]);
 	
-	//Close the text box
-	if (interact)
+	draw_set_color(font_colour);
+	global.char_cnt += global.char_time;
+	global.char_cnt = min(global.char_cnt, strlen);
+	draw_text_ext(x1, y1, string_copy(text[page], 1, global.char_cnt), strheight, x2 - x1);
+	return (strlen);
+}
+
+/*
+	true to keep the box open
+	false to close the box
+*/
+function	close_chat(interact){
+	return (!bool(interact));
+}
+
+function	init_sizes(pos){
+	var	height, width, box_height, xf, xs, yf, ys;
+	
+	//Get screen size
+	height = display_get_gui_height();
+	width = display_get_gui_width();
+	box_height = height * 0.3;
+	
+	//Set x sizes
+	xf = width * 0.2;
+	xs = width - xf;
+	
+	//Set y sizes
+	if (pos == "up"){
+		yf = 25;
+		ys = yf + box_height;
+	}
+	else if (pos == "down"){
+		ys = height - 25;
+		yf = ys - box_height;
+	}
+	
+	return {x1: xf,	x2: xs,	y1: yf,	y2: ys};
+}
+
+/*
+	@param	text(string array char **) - text to be writen
+	@param	page - the array slot to show
+	@param	name - the name of the character
+	@param	font	- font of the text
+	@param	pos("up" || "down")	- the position of the textbox
+	@param	interact - the interac buton(to change the text and close the window)
+*/
+function	create_chat_box(name, name_colour, text, page, font, font_colour, box_colour, edge_colour, pos, interact){
+	var	strheight, strlen, size;
+
+	//Validate params
+	if (!valid_array(text) || !valid_real(page, interact) || !valid_string(pos, name))
 		return (false);
-	return (true);
+
+	//Set sizes
+	size = init_sizes(pos);	
+
+	// Draw the box
+	draw_box(box_colour, edge_colour, pos, size.x1, size.x2, size.y1, size.y2);
+	
+	// Draw the name
+	draw_set_font(font);
+		strheight = string_height(text);
+		size.y1 = draw_name(name, name_colour, strheight, size.x1, size.x2, size.y1);
+	
+	//draw_text
+	if (page < array_length(text)){	
+		strlen = draw_dialog(text, page, font_colour, strheight, size.x1, size.x2, size.y1);
+		
+		if (global.char_cnt < strlen)
+			return (true);
+	}
+	
+	//Reset color to standard
+	draw_set_color(c_white);
+
+	//Close the text box
+	return (close_chat(interact));
 }

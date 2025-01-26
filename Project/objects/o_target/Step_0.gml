@@ -1,10 +1,5 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-if (show_chat)
-	page++;
-else{
-	my_text = npc1_text(first_call, name);
-	page = 0;
-}
-
+if (place_meeting(x, y, o_npc1))
+	instance_destroy(other);

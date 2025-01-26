@@ -1,7 +1,7 @@
 /*
-	if left and right is holden, whe walk to right
-	
-	if up and down is holden we walk down
+	if both left and right are held, we walk to the right
+
+	if both up and down are held, we walk down;
 */
 function	set_keys(right, left, up, down){	
 	return {u: up && !down,

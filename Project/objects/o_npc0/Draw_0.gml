@@ -3,6 +3,6 @@
 
 draw_self();
 
-draw_text(x - 20, y - 30, string(can_walk));
+draw_text(x - 20, y - 30, string(stop_walk));
 
 

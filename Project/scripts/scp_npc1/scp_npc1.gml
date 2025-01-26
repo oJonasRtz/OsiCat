@@ -6,10 +6,10 @@ function npc1_text(first_call, name){
 		case rm_debug:
 			if (first_call){
 				text = array_create(4);
-				text[0] = "* Hi, my name is " + name + ".";
-				text[1] = "* Today is not a great day... ";
-				text[2] = "* ...everyone has the same name as mine in here..";
-				text[3] = "* ...maybe I shoud move.";
+				text[0] = "Hi, my name is " + name + ".";
+				text[1] = "Today is not a great day... ";
+				text[2] = "...everyone has the same name as mine in here.";
+				text[3] = "*...Maybe I shoud move...*";
 				return (text);
 			}
 			text = array_create(2);

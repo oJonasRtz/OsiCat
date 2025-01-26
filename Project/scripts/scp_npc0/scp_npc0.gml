@@ -8,7 +8,7 @@ function npc0_text(first_call, name){
 				text = array_create(3);
 				text[0] = "* Hi, my name is " + name + ".";
 				text[1] = "* That's a great day here in the ruins...";
-				text[2] = "* ...Doesn't it?";
+				text[2] = "*...Doesn't it?";
 				return (text);
 			}
 			text = array_create(1);

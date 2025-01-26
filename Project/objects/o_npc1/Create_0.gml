@@ -13,5 +13,5 @@ move_speed = 4;
 spriteset = set_sprites(s_npc0, s_npc0, s_npc0, s_npc0);
 
 //	Walk
-target = noone;
+target = o_player;
 dir = new_dir();
