@@ -1,12 +1,12 @@
-//global.char_cnt = 0;
-//global.char_time = 0.5;
+global.char_cnt = 0;
+global.char_time = 0.5;
 
 /*
 	@param	text(string array char **) - text to be writen
 	@param	font	- font of the text
 	@param	pos("up" || "down")	- the position of the textbox
 */
-function	create_chat_box(name, name_colour, text, page, font, font_colour, box_colour, edge_colour, pos){
+function	create_chat_box(name, name_colour, text, page, font, font_colour, box_colour, edge_colour, pos, interact){
 	var	height, width, strheight, edge, x1, x2, y1, y2, box_height;
 
 	edge = 5;
@@ -34,6 +34,7 @@ function	create_chat_box(name, name_colour, text, page, font, font_colour, box_c
 	
 	// Desenha o texto
 	draw_set_color(name_colour);
+	
 		draw_set_font(font);
 		strheight = string_height(text);
 		if (name != 0){
@@ -41,15 +42,20 @@ function	create_chat_box(name, name_colour, text, page, font, font_colour, box_c
 			y1 += strheight;
 		}
 		draw_set_color(font_colour);
-		if (page < array_length(text)){
-			//global.char_cnt += global.char_time;
-			//global.char_cnt = min(global.char_cnt, string_length(text[page]));
+		if (page < array_length(text)){	
 
-			draw_text_ext(x1, y1,text[page], strheight, x2 - x1);
-			//if (global.char_cnt < string_length(text[page]))
+			global.char_cnt += global.char_time;
+			global.char_cnt = min(global.char_cnt, string_length(text[page]));
+			
+			draw_text_ext(x1, y1, string_copy(text[page], 1, global.char_cnt), strheight, x2 - x1);
+			if (global.char_cnt < string_length(text[page]))
 				return (true);
 		}
+		
 	draw_set_color(c_white);
-	//global.char_cnt = 0;
-	return (false);
+	
+	//Close the text box
+	if (interact)
+		return (false);
+	return (true);
 }

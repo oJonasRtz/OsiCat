@@ -5,14 +5,16 @@ function npc1_text(first_call, name){
 	switch (room){
 		case rm_debug:
 			if (first_call){
-				text = array_create(3);
+				text = array_create(4);
 				text[0] = "* Hi, my name is " + name + ".";
-				text[1] = "* Today is not a great day. Everyone has the same name as me in here...";
-				text[2] = "* ... maybe I shoud move.";
+				text[1] = "* Today is not a great day... ";
+				text[2] = "* ...everyone has the same name as mine in here..";
+				text[3] = "* ...maybe I shoud move.";
 				return (text);
 			}
-			text = array_create(1);
-			text[0] = "* Please, don't come back, I'm sad now.";
+			text = array_create(2);
+			text[0] = "* Please, don't come back...";
+			text[1] = "* ...I'm sad now.";
 			break ;
 	}
 	return (text);
