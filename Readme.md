@@ -140,6 +140,7 @@ Handles player input and movement:
 
 ### 3. **Chat System**
 <img src="readme_assets/chat_demo.gif">
+
 Renders dialogue progressively:
 - Draws box with colored border
 - Displays NPC name
@@ -148,6 +149,7 @@ Renders dialogue progressively:
 
 ### 4. **Intelligent NPCs**
 <img src="readme_assets/enemies_behavior_demo.gif">
+
 - Each NPC has its own behavior
 - Detects collision with player
 - Can be interacted with via chat system
