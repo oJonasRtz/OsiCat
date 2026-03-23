@@ -112,7 +112,7 @@ OsiCat/
 ## 🎯 How It Works
 
 ### 1. **State Machine**
-<img src="readme_assets/stateMachine_demo.gif">
+<img src="https://github.com/oJonasRtz/assets/blob/main/gifs/osicat/stateMachine_demo.gif">
 Each entity (player, NPC, camera) uses a state machine:
 
 ```gml
@@ -139,7 +139,7 @@ Handles player input and movement:
 - Applies configurable speed
 
 ### 3. **Chat System**
-<img src="readme_assets/chat_demo.gif">
+<img src="https://github.com/oJonasRtz/assets/blob/main/gifs/osicat/chat_demo.gif">
 
 Renders dialogue progressively:
 - Draws box with colored border
@@ -148,7 +148,7 @@ Renders dialogue progressively:
 - Supports player interaction
 
 ### 4. **Intelligent NPCs**
-<img src="readme_assets/enemies_behavior_demo.gif">
+<img src="https://github.com/oJonasRtz/assets/blob/main/gifs/osicat/enemies_behavior_demo.gif">
 
 - Each NPC has its own behavior
 - Detects collision with player
